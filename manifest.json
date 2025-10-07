@@ -1,0 +1,60 @@
+{
+  "name": "Yacopí Stereo Player",
+  "short_name": "Yacopí Stereo",
+  "description": "Yacopí Stereo Player",
+  "start_url": "https://jhonegalvan.github.io/yacopistereo/",
+  "display": "standalone",
+  "background_color": "#3F51B5",
+  "theme_color": "#3F51B5",
+  "icons": [
+    {
+      "src": "assets/ds.webp",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "assets/ds.webp",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "./?mode=pwa",
+  "theme_color": "#3F51B5",
+  "background_color": "#3F51B5", 
+  "orientation": "any", 
+  "display": "standalone", 
+  "display_override": [
+    "standalone"
+  ],
+  "lang": "es-CO", 
+  "dir": "ltr",
+  "categories": [
+    "music"
+  ],
+  "screenshots": [
+    {
+      "src": "assets/ds.webp",
+      "type": "image/png",
+      "sizes": "540x720",
+      "form_factor": "narrow"
+    },
+    {
+      "src": "assets/ds.webp",
+      "type": "image/png",
+      "sizes": "540x720",
+      "form_factor": "narrow"
+    },
+    {
+      "src": "assets/ds.webp",
+      "type": "image/png",
+      "sizes": "720x540",
+      "form_factor": "wide"
+    }
+  ],
+  "related_applications": [
+    {
+      "platform": "play",
+      "url": ""
+    }
+  ]
+}

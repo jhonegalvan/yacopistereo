@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es_CO">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,viewport-fit=cover" />
+        <title>Yacopí Stereo Player</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com/" />
+        <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+        <meta name="theme-color" content="#3F51B5" />
+        <meta property="og:image" content="assets/ogf.png" />
+        <meta property="og:image:type" content="assets/ogf_ds.png" />
+        <meta property="og:image:width" content="600" />
+        <meta property="og:image:height" content="360" />
+        <meta property="og:title" content="RadioPlayer" />
+        <meta property="og:url" content="https://jhonegalvan.github.io/yacopistereo/" />
+        <meta property="og:site_name" content="Yacopí Stereo" />
+        <meta property="og:description" content="Yacopí Stereo Player" />
+        <link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon" />
+        <link rel="stylesheet" href="css/main.min.css" />
+        <link rel="stylesheet" href="custom.css" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.3.0/color-thief.umd.js" defer=""></script>
+        <script src="js/main.js" defer></script>
+        <link href="manifest.json" rel="manifest" />
+        <script>
+            window.streams = {
+                timeRefresh: 10000,
+                stations: [
+                    {
+                        name: "Yacopí Stereo",
+                        hash: "",
+                        description: "",
+                        logo: "assets/ds_logo.png",
+                        album: "assets/ds.webp",
+                        cover: "assets/bg.webp",
+                        api: "https://twj.es/metadata/?url=https://play8.tikast.com:20033/stream",
+                        stream_url: "https://play8.tikast.com:20033/stream",
+                        tv_url: "",
+                        server: "",
+                        program: {
+                            time: "STREAMING",
+                            name: "Emisora Yacopí Stereo",
+                            description: "EN VIVO",
+                        },
+                        social: {
+                            whatsapp: "https://api.whatsapp.com/send/?phone=573228572700",
+                            facebook: "https://www.facebook.com/yacopi.estereo",
+                            instagram: "https://www.instagram.com/yacopiestereo/",
+                            tiktok: "https://www.tiktok.com/@yacopi.estereo",
+                        },
+                        apps: {
+                            android: "https://play.google.com/store/apps/details?id=com.jhongalvan.yacopistereo",
+                        },
+                    },    
+                ],
+            };
+        </script>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&amp;display=swap" rel="stylesheet" />
+        <link href="https://fonts.cdnfonts.com/css/akira-expanded" rel="stylesheet" />
+    </head>
+    <body class="preload">
+        <div class="app">
+            <img src="assets/ds_logo.png" alt="cover" class="player-cover-image song-cover" height="100%" width="100%" />
+
+            <header class="header">
+                <div class="header-wrapper flex justify-between">
+                    <a class="header-logo" href="#site">
+                        <img class="header-logo-img" src="assets/radioplayer.svg" alt="logo" />
+                    </a>
+
+                    <div class="toggle-options flex items-start">
+                        </button>
+                        <button class="btn l:none" data-outside="mobile-menu">
+                            <svg class="i i-bars" viewBox="0 0 24 24">
+                                <path d="M3 6h18M3 12h18M3 18h18"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <div class="player song-now scrollbar flex column">
+                <div class="player-wrapper">
+                    <div class="player-cover flex column items-center justify-center g-2 items-center">
+                        <div class="player-cover-title flex column items-center justify-center uppercase text-center">
+                            <span class="song-artist fw-700 station-description m:fs-9">Artist</span>
+                            <span class="song-name station-name fw-700 m:fs-15 fs-15 color-title">Song</span>
+                        </div>
+                        <div class="player-artwork relative">
+                            <img alt="artwork" height="600" src="assets/cover.webp" width="600" />
+                            <div class="player-program"></div>
+                        </div>
+
+                        <div class="player-controller">
+                            <div class="player-button player-button-volume">
+                                <button class="player-button player-button-volume-toggle" data-outside="player-volume">
+                                    <svg class="i i-volume-high" viewBox="0 0 24 24">
+                                        <path d="M6 9H2v6h4l5 4V5Zm9 7a5 5 0 0 0 0-8m3 12a10 10 0 0 0 0-16"></path>
+                                    </svg>
+                                </button>
+                                <div class="dropdown" id="player-volume">
+                                    <div class="player-range-wrapper">
+                                        <input aria-label="Volume" class="player-volume" max="100" min="0" name="player" type="range" value="100" />
+                                        <div class="player-range-fill"></div>
+                                        <div class="player-range-thumb"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button class="player-button player-button-backward-step" hidden>
+                                <svg class="i i-backward-step" viewBox="0 0 24 24">
+                                    <path d="M6 5v14M18 4v16L8 12Z"></path>
+                                </svg>
+                            </button>
+
+                            <button aria-label="Play/Pause" class="player-button player-button-play flex-none">
+                                <svg class="i i-play" viewBox="0 0 24 24">
+                                    <path d="m7 3 14 9-14 9z"></path>
+                                </svg>
+                            </button>
+
+                            <button class="player-button player-button-forward-step" hidden>
+                                <svg class="i i-forward-step" viewBox="0 0 24 24">
+                                    <path d="M18 5v14M6 4v16l10-8Z"></path>
+                                </svg>
+                            </button>
+
+                            <button class="player-button player-button-lyrics" data-outside="modal-lyrics">
+                                <svg class="i i-list-music" viewBox="0 0 24 24">
+                                    <path d="M16 8h6V3h-6v15M2 3h9M2 8h9m-9 5h3"></path>
+                                    <circle cx="12" cy="18" r="4"></circle>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <svg class="visualizer-filter">
+                <defs>
+                    <filter id="gooey" x="-30%" y="-30%" width="160%" height="160%">
+                        <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+                        <feColorMatrix in="blur" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 35 -20" result="gooey" />
+                        <feComposite in="SourceGraphic" in2="gooey" operator="atop" />
+                    </filter>
+                </defs>
+            </svg>
+            <div class="visualizer"></div>
+
+            <aside class="offcanvas scrollbar" id="offcanvas-stations">
+                <button data-close aria-label="close" class="btn">
+                    <svg class="i i-xmark" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"></path></svg>
+                </button>
+                <div class="offcanvas-content">
+                    <div class="stations column flex g-1" id="stations"></div>
+                </div>
+            </aside>
+
+            <aside class="offcanvas scrollbar" id="offcanvas-history">
+                <button data-close aria-label="close" class="btn">
+                    <svg class="i i-xmark" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"></path></svg>
+                </button>
+                <div class="offcanvas-content">
+                    <div class="stations column flex g-0.5" id="history"></div>
+                </div>
+            </aside>
+            <div class="modal" id="modal-lyrics">
+                <div class="modal-content">
+                    <div class="modal-title color-title flex items-center justify-between">
+                        <h2 class="modal-title-text m:fs-3 fs-5 fw-500">Letra</h2>
+                        <button data-close aria-label="close">
+                            <svg class="i i-xmark" viewBox="0 0 24 24">
+                                <path d="M18 6 6 18M6 6l12 12"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="modal-body scrollbar" id="lyrics"></div>
+                </div>
+            </div>
+            <div class="modal-video" id="modal-tv">
+                <button data-close aria-label="close" class="btn">
+                    <svg class="i i-xmark" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"></path></svg>
+                </button>
+                <div class="modal-body-video"></div>
+            </div>
+            <div class="modal-overlay"></div>
+            <div class="mobile-menu" id="mobile-menu">
+                <footer class="footer">
+                    <div class="footer-wrapper column flex">
+                        <div class="footer-tv"></div>
+                        <div class="footer-app flex wrap g-0.75"></div>
+                        <div class="footer-copyright">
+                            <small><strong>by Jhon Galvan</strong></small>
+                        </div>
+                    </div>
+                </footer>
+
+                <div class="player-social flex wrap"></div>
+            </div>
+        </div>
+
+        <!-- Audio element para autoplay -->
+        <audio id="audioElement" autoplay muted></audio>
+        
+        <script>
+            // Script para manejar el autoplay
+            document.addEventListener('DOMContentLoaded', function() {
+                // Esperar a que el usuario interactúe con la página
+                function handleFirstInteraction() {
+                    // Remover el muted del elemento de audio
+                    const audioElement = document.getElementById('audioElement');
+                    if (audioElement) {
+                        audioElement.muted = false;
+                        
+                        // Iniciar la reproducción si no está ya reproduciendo
+                        if (audioElement.paused) {
+                            audioElement.play().catch(error => {
+                                console.error('Error al intentar reproducir:', error);
+                            });
+                        }
+                    }
+                    
+                    // Remover los event listeners después de la primera interacción
+                    document.removeEventListener('click', handleFirstInteraction);
+                    document.removeEventListener('touchstart', handleFirstInteraction);
+                    document.removeEventListener('keydown', handleFirstInteraction);
+                }
+                
+                // Agregar event listeners para varios tipos de interacción
+                document.addEventListener('click', handleFirstInteraction);
+                document.addEventListener('touchstart', handleFirstInteraction);
+                document.addEventListener('keydown', handleFirstInteraction);
+                
+                // Remover la clase preload después de que todo esté listo
+                setTimeout(function() {
+                    document.body.classList.remove('preload');
+                }, 500);
+            });
+        </script>
+    </body>
+</html>
