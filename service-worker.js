@@ -1,4 +1,4 @@
-const CACHE_NAME = 'Yacopi';
+const CACHE_NAME = 'Yacopi_V3';
 const ASSETS_TO_CACHE = [
   '/',
   '/index.html',
