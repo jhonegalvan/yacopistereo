@@ -4,7 +4,7 @@
     // --- [CONFIGURAÇÕES] ----------------------------------------------- 
 
     const API_KEY_LYRICS = "";
-    const API_URL = "https://twj.es/metadata/?url=https://play8.tikast.com:20033/stream";
+    const API_URL = "https://streamhdglobal.com/cp/get_info.php?p=8024";
     const TIME_TO_REFRESH = window?.streams?.timeRefresh || 1000;
 
     // Verificar si el navegador soporta Service Worker
